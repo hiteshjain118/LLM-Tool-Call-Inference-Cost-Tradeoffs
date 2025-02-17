@@ -3,7 +3,7 @@ import json
 import requests
 
 # Initialize TogetherAI API Key
-client = Together(api_key="api_key")
+client = Together(api_key="together-api-key")
 
 # Define a mock tool: Fetching weather info
 def get_weather(city):
@@ -168,9 +168,12 @@ def post_process_70b(answers_json):
         call_tool(tool_name, parameters)
 
 # uncomment for 8b
+# returns a list of tools calls separated by new lines. 
+# Some times it may return a list of tool calls separated by comma. In that case, just rerun the code.
 answers_list = answers.split('\n')
 post_process_8b(answers_list)
 
 # uncomment for 70b
+# returns a JSON formatted list of tool calls.
 # answers_json = json.loads(answers)
 # post_process_70b(answers_json)
